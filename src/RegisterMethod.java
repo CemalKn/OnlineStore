@@ -1,5 +1,6 @@
 public class RegisterMethod {
     public static void register() {
+        System.out.println("-----Register-----");
         String email;
         String password;
         do {

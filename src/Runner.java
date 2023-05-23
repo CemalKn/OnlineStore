@@ -2,11 +2,32 @@ public class Runner {
     static int count = 0;
     public static void main(String[] args) {
         Depo.urunleriEkle();
-        start();
+        storeAndBank();
     }
+
+    public static void storeAndBank() {
+        System.out.println("------------------------\n--------Wellcome--------\n------------------------");
+        System.out.println("1-OnlineStore 2-Bank 3-Exit");
+        String secim = Depo.input.next();
+        switch (secim){
+            case "1":
+                start();
+            case "2":
+                BankaMethod.bankMenu();
+            case "3":
+                System.exit(0);
+            case"58":
+                BankaMethod.kartHazirla();
+                BankaMethod.odeme();
+            default:
+                System.out.println("Please make a valid entry...");
+                storeAndBank();
+        }
+    }
+
     public static void start(){
         if (count==0) {
-            System.out.println("------------------------\n--------Wellcome--------\n------------------------");
+            System.out.println("----------------------------------\n--------Wellcome The Store--------\n----------------------------------");
             count++;
         }
         System.out.println("1-Login 2-Register 3-Number of Members and e-mail addresses 4-Exit");
@@ -19,9 +40,7 @@ public class Runner {
             case "3":
                 Uyeler.uyeleriGoster();
             case "4":
-                System.exit(0);
-            case "58":
-                BankaMethod.kartHazirla();
+                storeAndBank();
             default:
                 System.out.println("invalid input...");
                 for (int i = 0 ; i<3;i++){

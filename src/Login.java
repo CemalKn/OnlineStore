@@ -2,6 +2,7 @@ public class Login {
     public static int count;
     public static Register correctReg;
     public static void login() {
+        System.out.println("-----Login-----");
         String email;
         String password;
         do {

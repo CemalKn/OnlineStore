@@ -4,6 +4,7 @@ public class Siparis {
     static ElektronikSiparis elektronikSiparis = new ElektronikSiparis();
     static TatliVeKuruyemisSiparis tatliVeKuruyemisSiparis = new TatliVeKuruyemisSiparis();
     public static void siparis() {
+        System.out.println("-----Order-----");
         do {
             System.out.println("Category\n--------\n1-Fruits and vegetables \n2-Electronic \n3-Sweets and Kuruyemis \n4-Previous page");
             String secim = Depo.input.next();

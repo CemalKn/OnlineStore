@@ -44,5 +44,4 @@ public class Manav {
                 manavList.add(urun8);
                 manavList.add(urun9);
         }
-
 }

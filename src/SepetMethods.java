@@ -3,6 +3,7 @@ import java.util.Iterator;
 public class SepetMethods{
 
     public static void sepetMenu() {
+        System.out.println("-----Your Orders-----");
         System.out.println("1-Complete order\n2-Deleting Items in Orders\n3-Delete Orders Completely\n4-Previous page");
         String secim = Depo.input.next();
         switch (secim){
@@ -157,6 +158,18 @@ public class SepetMethods{
         System.out.println("------------------------------");
         System.out.println("Total amount : "+toplamFiyat+" TL");
         System.out.println();
-        sepetMenu();
+        System.out.println("1-Pay by credit card 2-I do not have a credit card 3-Exit");
+        Depo.secim = Depo.input.next();
+        switch (Depo.secim){
+            case "1":
+                BankaMethod.odeme();
+            case "2":
+
+            case "3":
+                sepetMenu();
+            default:
+                System.out.println("Please make a valid entry");
+                siparisTamamla();
+        }
     }
 }
