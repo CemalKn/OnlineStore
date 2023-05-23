@@ -3,6 +3,7 @@ import java.util.List;
 
 public class BankaKart {
     public static List<BankaKart> bankaList = new ArrayList<>();
+    public static String userMoney = "500";
 
     private String isim;
     private String soyIsim;

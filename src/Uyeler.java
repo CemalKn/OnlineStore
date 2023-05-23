@@ -1,5 +1,6 @@
 public class Uyeler {
     public static void uyeleriGoster() {
+        System.out.println("-----Members-----");
         Login.count=1;
         if (Register.registers.size()-1>0){
             int count = 0;
