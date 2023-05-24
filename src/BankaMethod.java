@@ -1,4 +1,6 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class BankaMethod {
@@ -88,6 +90,7 @@ public class BankaMethod {
         for (int i = 0; i<3 ;i++){
             deger = rnd.nextInt(8999)+1000;
             kartNo+=deger+" ";
+            System.out.println(kartNo);
         }
         return kartNo.trim();
     }
@@ -230,28 +233,78 @@ public class BankaMethod {
 
     public static void odeme() {
         showCard();
-        System.out.println("Please enter the card number");
-        Depo.input.next();
-        String cardNo = Depo.input.nextLine();
-        System.out.println("Please enter card owner name and surname");
-        String nameSurname = Depo.input.nextLine();
-        System.out.println("Please enter expiration date");
-        String date = Depo.input.nextLine();
-        System.out.println("Please enter CVV code");
-        String cvv = Depo.input.nextLine();
-        if (!cardNo.trim().replaceAll(" ","").equals(kart.getKartNo().replaceAll(" ",""))){
-            System.out.println("Wrong card number");
+        Login.count = 0;
+        Depo.input.nextLine();
+        String cardNo = eCard();
+        String nameSurname = eNS();
+        String date = edate();
+        String cvv = eCVV();
+        List<String> hata = new ArrayList<>();
+        if (!cardNo.replaceAll(" ","").equals(kart.getKartNo().replaceAll(" ",""))){
+            hata.add("Wrong card number");
+            Login.count++;
         }
         if (!nameSurname.replaceAll(" ","").equals((kart.getIsim()+kart.getSoyIsim()).replaceAll(" ",""))){
-            System.out.println("Wrong card owner");
+            hata.add("Wrong card owner");
+            Login.count++;
         }
         if (!date.trim().replaceAll("/ ","").equals(kart.getSonKullanmaTarihi().replaceAll("/ ",""))){
-            System.out.println("Wrong date");
+            hata.add("Wrong date");
+            Login.count++;
         }
         if (!cvv.trim().replaceAll(" ","").equals(kart.getCcv().replaceAll(" ",""))){
-            System.out.println("Wrong CVV");
+            hata.add("Wrong CVV");
+            Login.count++;
         }
-        System.out.println("line finish");
+        if (Login.count==0){
+            if (Integer.valueOf(BankaKart.userMoney)<Sepet.toplamFiyat){
+                System.out.println();
+                System.out.println("--Insufficient balance--");
+                System.out.println();
+                SepetMethods.sepetMenu();
+            }else{
+                System.out.println("-----Thank you for choosing us-----\n" +
+                        "Your order has been successfully completed");
+                Sepet.eskiSiparisler.add(Sepet.sepet);
+                if (Sepet.sepet.size()!=0) {
+                    for (int i = 0; i < Sepet.sepet.size(); ) {
+                        Sepet.sepet.remove(i);
+                    }
+                }
+                SepetMethods.sepetMenu();
+            }
+        }else {
+            System.out.print("Incorrect entry : ");
+            if (hata.size()!=0) {
+                for (int i = 0; i < hata.size(); ) {
+                    System.out.print(hata.get(i) + " ");
+                    hata.remove(i);
+                }
+            }
+            System.out.println();
+            SepetMethods.sepetMenu();
+        }
+    }
+
+    private static String eCVV() {
+
+        System.out.println("Please enter CVV code");
+        return Depo.input.nextLine();
+    }
+
+    private static String edate() {
+        System.out.println("Please enter expiration date");
+        return Depo.input.nextLine();
+    }
+
+    private static String eNS() {
+        System.out.println("Please enter card owner name and surname");
+        return Depo.input.nextLine();
+    }
+
+    private static String eCard() {
+        System.out.println("Please enter the card number");
+        return Depo.input.nextLine();
     }
 }
 

@@ -14,7 +14,7 @@ public class MainPage {
             case "3":
                 ComplatedSiparis.comlatedSiparis();
             case "4":
-                System.exit(0);
+                Runner.start();
             default:
                 System.out.println("Invalid select...");
                 for (int i = 0 ; i<3 ; i++){

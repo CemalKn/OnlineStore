@@ -160,6 +160,7 @@ public class SepetMethods{
         System.out.println();
         System.out.println("1-Pay by credit card 2-I do not have a credit card 3-Exit");
         Depo.secim = Depo.input.next();
+        Sepet.toplamFiyat = toplamFiyat;
         switch (Depo.secim){
             case "1":
                 BankaMethod.odeme();
