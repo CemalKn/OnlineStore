@@ -1,4 +1,5 @@
 public class Runner {
+//kredi karti almadan siparis tamamlayinca hata
     static int count = 0;
     public static void main(String[] args) {
         Depo.urunleriEkle();

@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class BankaMethod {
     public static String oneTimeCode = "";
-    public static BankaKart kart = new BankaKart("a","A");
+    public static BankaKart kart = new BankaKart("hgewrkgrkhlwgrkjlw","kvbqerj,qjklrgqhjr");
     public static int count = 0;
     static Random rnd = new Random();
     public static void kartHazirla(){
@@ -265,7 +265,8 @@ public class BankaMethod {
             }else{
                 System.out.println("-----Thank you for choosing us-----\n" +
                         "Your order has been successfully completed");
-                Sepet.eskiSiparisler.add(Sepet.sepet);
+                List<Sepet> gecici = Sepet.sepet;
+                Sepet.eskiSiparisler.add(gecici);
                 if (Sepet.sepet.size()!=0) {
                     for (int i = 0; i < Sepet.sepet.size(); ) {
                         Sepet.sepet.remove(i);

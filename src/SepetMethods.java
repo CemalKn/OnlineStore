@@ -110,7 +110,7 @@ public class SepetMethods{
             String bilgi1 = "Previous --> "+silUrunS.isim+" "+silUrunS.fiyat+" TL";
             int yeniAdet = eskiAdet-eksilenAdet;
             silUrunS.isim = silUrunS.isim.replaceFirst(silUrunS.isim.split(" ")[1],yeniAdet+"");
-            if (silUrunS.getCesit().equalsIgnoreCase("elektronik")){
+            if (silUrunS.getCesit().equalsIgnoreCase("Electronic")){
                 for (Elektronik e : Elektronik.elektronikList){
                     if(e.getIsim().equalsIgnoreCase(silinenUrunIsmi)){
                         silUrunS.fiyat = (Integer.valueOf(e.getFiyat().replaceAll("[^0-9]",""))*yeniAdet)+"";
@@ -134,7 +134,7 @@ public class SepetMethods{
             if (silUrunS.isim.replaceAll("[^0-9]","").equalsIgnoreCase("0")){
                 Sepet.sepet.remove(silUrunS);
             }
-            System.out.println("Islem Basari ile gerceklesti...");
+            System.out.println("Transaction Successfully Performed...");
             System.out.println(bilgi1+"  |  Next --> "+silUrunS.isim+" "+silUrunS.fiyat+" TL");
 
             sepettenUrunSil();
@@ -148,7 +148,7 @@ public class SepetMethods{
             System.out.println();
             sepetMenu();
         }
-        System.out.printf("    Product         |  Price\n");
+        System.out.print("    Product         |  Price\n");
         System.out.println("-----------------------");
         int toplamFiyat = 0;
         for (Sepet a : Sepet.sepet){

@@ -12,8 +12,6 @@ public class Depo {
         Register a = new Register("a","a");
         Register.registers.add(a);
 
-        Sepet gecici = new Sepet("Manav","Domates 30 KG","900");
-        Sepet.sepet.add(gecici);
 
     }
 }

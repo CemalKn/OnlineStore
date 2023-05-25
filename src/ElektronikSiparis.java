@@ -68,7 +68,7 @@ public class ElektronikSiparis implements UrunListesiVeSiparis {
                         urunListesiVeSiparis();
                     }else {
                         System.out.println("Product added to orders...");
-                        Sepet urunSepet = new Sepet("Electronic",istenenUrun.getIsim() + " " + kg + " Adet", fiyatAdet);
+                        Sepet urunSepet = new Sepet("Electronic",istenenUrun.getIsim() + " " + kg + " Piece", fiyatAdet);
                         Sepet.sepet.add(urunSepet);
                         Sepet.sepet.remove(gecici);
                         urunListesiVeSiparis();
