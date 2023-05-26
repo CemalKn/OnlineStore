@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class BankaMethod {
     public static String oneTimeCode = "";
-    public static BankaKart kart = new BankaKart("hgewrkgrkhlwgrkjlw","kvbqerj,qjklrgqhjr");
+    public static BankaKart kart = new BankaKart("jgnh424le;wrwewkrhntwnx","[]/dmaw]");
     public static int count = 0;
     static Random rnd = new Random();
     public static void kartHazirla(){
@@ -240,20 +240,26 @@ public class BankaMethod {
         String date = edate();
         String cvv = eCVV();
         List<String> hata = new ArrayList<>();
+        if (kart.getIsim().equals("jgnh424le;wrwewkrhntwnx")){
+            System.out.println();
+            System.out.println("--Invalid information--\n--If you don't have a card, please get one.--");
+            System.out.println();
+            SepetMethods.sepetMenu();
+        }
         if (!cardNo.replaceAll(" ","").equals(kart.getKartNo().replaceAll(" ",""))){
-            hata.add("Wrong card number");
+            hata.add("--Wrong card number--");
             Login.count++;
         }
-        if (!nameSurname.replaceAll(" ","").equals((kart.getIsim()+kart.getSoyIsim()).replaceAll(" ",""))){
-            hata.add("Wrong card owner");
+        if (!nameSurname.replaceAll(" ","").equalsIgnoreCase((kart.getIsim()+kart.getSoyIsim()).replaceAll(" ",""))){
+            hata.add("--Wrong card owner--");
             Login.count++;
         }
-        if (!date.trim().replaceAll("/ ","").equals(kart.getSonKullanmaTarihi().replaceAll("/ ",""))){
-            hata.add("Wrong date");
+        if (!date.trim().replaceAll("[/ ]","").equals(kart.getSonKullanmaTarihi().replaceAll("[/ ]",""))){
+            hata.add("--Wrong date--");
             Login.count++;
         }
         if (!cvv.trim().replaceAll(" ","").equals(kart.getCcv().replaceAll(" ",""))){
-            hata.add("Wrong CVV");
+            hata.add("--Wrong CVV--");
             Login.count++;
         }
         if (Login.count==0){
@@ -265,7 +271,7 @@ public class BankaMethod {
             }else{
                 System.out.println("-----Thank you for choosing us-----\n" +
                         "Your order has been successfully completed");
-                List<Sepet> gecici = Sepet.sepet;
+                List<Sepet> gecici = new ArrayList<>(Sepet.sepet);
                 Sepet.eskiSiparisler.add(gecici);
                 if (Sepet.sepet.size()!=0) {
                     for (int i = 0; i < Sepet.sepet.size(); ) {

@@ -14,7 +14,7 @@ public class Login {
             password = Depo.input.next();
         }while (!samePassword(password)&&!password.equals("0"));
         if (email.equals("a")){
-            System.out.println("Admin login...");
+            System.out.println("----Admin login!!!---");
             MainPage.mainPage();
         }
         System.out.println("Successful login...");

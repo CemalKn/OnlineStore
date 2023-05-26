@@ -25,15 +25,15 @@ public class Manav {
         }
 
         public static void urunEkleManav() {
-                Manav urun1 = new Manav("Domates","KG 30 TL");
-                Manav urun2 = new Manav("Patates","KG 15 TL");
-                Manav urun3 = new Manav("Sogan","KG 17 TL");
-                Manav urun4 = new Manav("Havuc","KG 30 TL");
-                Manav urun5 = new Manav("Biber","KG 40 TL");
-                Manav urun6 = new Manav("Muz","KG 50 TL");
-                Manav urun7 = new Manav("Portakal","KG 43 TL");
-                Manav urun8 = new Manav("Erik","KG 599 TL");
-                Manav urun9 = new Manav("Kivi","KG 30 TL");
+                Manav urun1 = new Manav("Tomatoes","KG 30 TL");
+                Manav urun2 = new Manav("Potatoes","KG 15 TL");
+                Manav urun3 = new Manav("Onion","KG 17 TL");
+                Manav urun4 = new Manav("Carrot","KG 30 TL");
+                Manav urun5 = new Manav("Pepper","KG 40 TL");
+                Manav urun6 = new Manav("Banana","KG 50 TL");
+                Manav urun7 = new Manav("Orange","KG 43 TL");
+                Manav urun8 = new Manav("Plum","KG 599 TL");
+                Manav urun9 = new Manav("Apricot","KG 30 TL");
                 manavList.add(urun1);
                 manavList.add(urun2);
                 manavList.add(urun3);

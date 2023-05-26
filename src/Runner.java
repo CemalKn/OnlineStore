@@ -1,6 +1,4 @@
 public class Runner {
-//kredi karti almadan siparis tamamlayinca hata
-    static int count = 0;
     public static void main(String[] args) {
         Depo.urunleriEkle();
         storeAndBank();
@@ -27,10 +25,7 @@ public class Runner {
     }
 
     public static void start(){
-        if (count==0) {
-            System.out.println("----------------------------------\n--------Wellcome The Store--------\n----------------------------------");
-            count++;
-        }
+        System.out.println("----------------------------------\n--------Wellcome The Store--------\n----------------------------------");
         System.out.println("1-Login 2-Register 3-Number of Members and e-mail addresses 4-Exit");
         String secim = Depo.input.next();
         switch (secim){
@@ -47,11 +42,12 @@ public class Runner {
                 for (int i = 0 ; i<3;i++){
                     try {
                         Thread.sleep(300);
-                        System.out.println(".");
+                        System.out.print(".");
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
                 }
+                System.out.println();
                 start();
         }
     }

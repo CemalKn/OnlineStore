@@ -50,7 +50,7 @@ public class RegisterMethod {
     }
 
     public static boolean correctEmail(String email){
-        if (email.endsWith("@hotmail.com")||email.endsWith("@gmail.com")){
+        if ((email.endsWith("@hotmail.com")&&email.trim().length()>=13)||(email.endsWith("@gmail.com"))&&email.trim().length()>=11){
             int look = 0;
             for (Register a : Register.registers){
                 if (a.getEmail().equals(email)){

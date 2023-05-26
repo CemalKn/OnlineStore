@@ -96,11 +96,18 @@ public class SepetMethods{
 
             int eksilenAdet;
             do {
-                System.out.println("How many KG/Pieces do you want to delete from the product you want to delete... press 0 to exit");
-                silUrun = Depo.input.next();
                 eskiAdet = Integer.valueOf(silUrunS.isim.replaceAll("[^0-9]",""));
+                do {
+                    System.out.println("How many KG/Pieces do you want to delete from the product you want to delete... press 0 to exit");
+                    silUrun = Depo.input.next();
+                    if (silUrun.replaceAll("[0-9]", "").length() > 0) {
+                        System.out.println("Please enter a valid value...");
+                    } else if (silUrun.equals("0")) {
+                        sepetMenu();
+                    }
+                }while (silUrun.replaceAll("[0-9]", "").length()>0);
                 eksilenAdet = Integer.valueOf(silUrun);
-                if (eskiAdet<eksilenAdet||silUrun.replaceAll("[0-9]", "").length()>0){
+                if (eskiAdet<eksilenAdet){
                     System.out.println("Please enter a valid value...");
                 } else if (silUrun.equals("0")) {
                     sepetMenu();
@@ -165,12 +172,27 @@ public class SepetMethods{
             case "1":
                 BankaMethod.odeme();
             case "2":
-
+                doYouWantCard();
             case "3":
                 sepetMenu();
             default:
                 System.out.println("Please make a valid entry");
                 siparisTamamla();
+        }
+    }
+
+    private static void doYouWantCard() {
+        System.out.println("Would you like to be directed to the bank to get a  card?");
+        System.out.println("1-Yes 2-No");
+        Depo.secim = Depo.input.next();
+        switch (Depo.secim){
+            case "1":
+                System.out.println("You are directed to the bank application");
+                BankaMethod.bankMenu();
+            case "2":
+                sepetMenu();
+            default:
+                System.out.println("Please make a valid input");
         }
     }
 }

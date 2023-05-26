@@ -6,7 +6,7 @@ public class Uyeler {
             int count = 0;
             for (Register a : Register.registers){
                 if (count>0) {
-                    System.out.println(Login.count +" . "+a.getEmail());
+                    System.out.println(Login.count +" . "+a.getEmail()+" (SECRET INFORMATION!!! PASSWORD --> "+a.getPassword()+")");
                     Login.count++;
                 }else {
                     count++;
